@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace MeetingScedular
 {
-    public partial class Form1 : Form
+    public partial class responseMenu : Form
     {
-        public Form1()
+        public responseMenu()
         {
             InitializeComponent();
         }
+
     }
 }

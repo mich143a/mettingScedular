@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addOrEditPartcipantsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addOrEditPartcipantsForm.Designer.cs">
+      <DependentUpon>addOrEditPartcipantsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="availableDatesMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="availableDatesMenu.Designer.cs">
+      <DependentUpon>availableDatesMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="constraintsVoilatedMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="constraintsVoilatedMenu.Designer.cs">
+      <DependentUpon>constraintsVoilatedMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dataConflictMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dataConflictMenu.Designer.cs">
+      <DependentUpon>dataConflictMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +84,18 @@
     <Compile Include="responseMenu.Designer.cs">
       <DependentUpon>responseMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addOrEditPartcipantsForm.resx">
+      <DependentUpon>addOrEditPartcipantsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="availableDatesMenu.resx">
+      <DependentUpon>availableDatesMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="constraintsVoilatedMenu.resx">
+      <DependentUpon>constraintsVoilatedMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dataConflictMenu.resx">
+      <DependentUpon>dataConflictMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainMenu.resx">
       <DependentUpon>mainMenu.cs</DependentUpon>
     </EmbeddedResource>

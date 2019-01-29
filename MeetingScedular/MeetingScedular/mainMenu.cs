@@ -19,7 +19,7 @@ namespace MeetingScedular
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //load function
         }
 
     }

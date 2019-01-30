@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MeetingScedular
 {
-    public partial class addOrEditPartcipantsForm : Form
+    public partial class addOrEditparticipantsForm : Form
     {
-        public addOrEditPartcipantsForm()
+        public addOrEditparticipantsForm()
         {
             InitializeComponent();
         }

@@ -22,5 +22,19 @@ namespace MeetingScedular
             //load function
         }
 
+        private void allParticipantListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void updateDisplay()
+        {
+            /*lstActiveTickets.Items.Clear();
+            List<Ticket> tickets = activeTickets.GetTickets();
+            foreach (Ticket ticket in tickets)
+            {
+                lstActiveTickets.Items.Add("#" + ticket.GetHashCode() + ": " + ticket.IsPaid().ToString() + ": Bay " + ticket.GetParkingSpace().GetId().ToString());
+            }
+            */
+        }
     }
 }

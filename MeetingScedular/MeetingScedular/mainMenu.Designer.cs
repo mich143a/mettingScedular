@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.movePartcipantsLeftBtn = new System.Windows.Forms.Button();
+            this.moveparticipantsLeftBtn = new System.Windows.Forms.Button();
             this.allParticipantListBox = new System.Windows.Forms.ListBox();
-            this.SelectedPartcipantsListBox = new System.Windows.Forms.ListBox();
-            this.movePartcipantRightBtn = new System.Windows.Forms.Button();
-            this.addPartcipantBtn = new System.Windows.Forms.Button();
-            this.editPartcipantBtn = new System.Windows.Forms.Button();
-            this.removePartcipantBtn = new System.Windows.Forms.Button();
+            this.SelectedparticipantsListBox = new System.Windows.Forms.ListBox();
+            this.moveparticipantRightBtn = new System.Windows.Forms.Button();
+            this.addparticipantBtn = new System.Windows.Forms.Button();
+            this.editparticipantBtn = new System.Windows.Forms.Button();
+            this.removeparticipantBtn = new System.Windows.Forms.Button();
             this.CloseFormBtn = new System.Windows.Forms.Button();
             this.startSceduleBtn = new System.Windows.Forms.Button();
             this.loadFileBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // movePartcipantsLeftBtn
+            // moveparticipantsLeftBtn
             // 
-            this.movePartcipantsLeftBtn.Location = new System.Drawing.Point(177, 282);
-            this.movePartcipantsLeftBtn.Name = "movePartcipantsLeftBtn";
-            this.movePartcipantsLeftBtn.Size = new System.Drawing.Size(44, 23);
-            this.movePartcipantsLeftBtn.TabIndex = 0;
-            this.movePartcipantsLeftBtn.Text = ">";
-            this.movePartcipantsLeftBtn.UseVisualStyleBackColor = true;
+            this.moveparticipantsLeftBtn.Location = new System.Drawing.Point(177, 282);
+            this.moveparticipantsLeftBtn.Name = "moveparticipantsLeftBtn";
+            this.moveparticipantsLeftBtn.Size = new System.Drawing.Size(44, 23);
+            this.moveparticipantsLeftBtn.TabIndex = 0;
+            this.moveparticipantsLeftBtn.Text = ">";
+            this.moveparticipantsLeftBtn.UseVisualStyleBackColor = true;
             // 
             // allParticipantListBox
             // 
@@ -56,50 +56,51 @@
             this.allParticipantListBox.Name = "allParticipantListBox";
             this.allParticipantListBox.Size = new System.Drawing.Size(120, 95);
             this.allParticipantListBox.TabIndex = 1;
+            this.allParticipantListBox.SelectedIndexChanged += new System.EventHandler(this.allParticipantListBox_SelectedIndexChanged);
             // 
-            // SelectedPartcipantsListBox
+            // SelectedparticipantsListBox
             // 
-            this.SelectedPartcipantsListBox.FormattingEnabled = true;
-            this.SelectedPartcipantsListBox.Location = new System.Drawing.Point(227, 272);
-            this.SelectedPartcipantsListBox.Name = "SelectedPartcipantsListBox";
-            this.SelectedPartcipantsListBox.Size = new System.Drawing.Size(120, 95);
-            this.SelectedPartcipantsListBox.TabIndex = 2;
+            this.SelectedparticipantsListBox.FormattingEnabled = true;
+            this.SelectedparticipantsListBox.Location = new System.Drawing.Point(227, 272);
+            this.SelectedparticipantsListBox.Name = "SelectedparticipantsListBox";
+            this.SelectedparticipantsListBox.Size = new System.Drawing.Size(120, 95);
+            this.SelectedparticipantsListBox.TabIndex = 2;
             // 
-            // movePartcipantRightBtn
+            // moveparticipantRightBtn
             // 
-            this.movePartcipantRightBtn.Location = new System.Drawing.Point(177, 331);
-            this.movePartcipantRightBtn.Name = "movePartcipantRightBtn";
-            this.movePartcipantRightBtn.Size = new System.Drawing.Size(44, 23);
-            this.movePartcipantRightBtn.TabIndex = 3;
-            this.movePartcipantRightBtn.Text = "<";
-            this.movePartcipantRightBtn.UseVisualStyleBackColor = true;
+            this.moveparticipantRightBtn.Location = new System.Drawing.Point(177, 331);
+            this.moveparticipantRightBtn.Name = "moveparticipantRightBtn";
+            this.moveparticipantRightBtn.Size = new System.Drawing.Size(44, 23);
+            this.moveparticipantRightBtn.TabIndex = 3;
+            this.moveparticipantRightBtn.Text = "<";
+            this.moveparticipantRightBtn.UseVisualStyleBackColor = true;
             // 
-            // addPartcipantBtn
+            // addparticipantBtn
             // 
-            this.addPartcipantBtn.Location = new System.Drawing.Point(373, 272);
-            this.addPartcipantBtn.Name = "addPartcipantBtn";
-            this.addPartcipantBtn.Size = new System.Drawing.Size(57, 23);
-            this.addPartcipantBtn.TabIndex = 4;
-            this.addPartcipantBtn.Text = "Add";
-            this.addPartcipantBtn.UseVisualStyleBackColor = true;
+            this.addparticipantBtn.Location = new System.Drawing.Point(373, 272);
+            this.addparticipantBtn.Name = "addparticipantBtn";
+            this.addparticipantBtn.Size = new System.Drawing.Size(57, 23);
+            this.addparticipantBtn.TabIndex = 4;
+            this.addparticipantBtn.Text = "Add";
+            this.addparticipantBtn.UseVisualStyleBackColor = true;
             // 
-            // editPartcipantBtn
+            // editparticipantBtn
             // 
-            this.editPartcipantBtn.Location = new System.Drawing.Point(373, 301);
-            this.editPartcipantBtn.Name = "editPartcipantBtn";
-            this.editPartcipantBtn.Size = new System.Drawing.Size(57, 23);
-            this.editPartcipantBtn.TabIndex = 5;
-            this.editPartcipantBtn.Text = "Edit";
-            this.editPartcipantBtn.UseVisualStyleBackColor = true;
+            this.editparticipantBtn.Location = new System.Drawing.Point(373, 301);
+            this.editparticipantBtn.Name = "editparticipantBtn";
+            this.editparticipantBtn.Size = new System.Drawing.Size(57, 23);
+            this.editparticipantBtn.TabIndex = 5;
+            this.editparticipantBtn.Text = "Edit";
+            this.editparticipantBtn.UseVisualStyleBackColor = true;
             // 
-            // removePartcipantBtn
+            // removeparticipantBtn
             // 
-            this.removePartcipantBtn.Location = new System.Drawing.Point(373, 344);
-            this.removePartcipantBtn.Name = "removePartcipantBtn";
-            this.removePartcipantBtn.Size = new System.Drawing.Size(57, 23);
-            this.removePartcipantBtn.TabIndex = 6;
-            this.removePartcipantBtn.Text = "Remove";
-            this.removePartcipantBtn.UseVisualStyleBackColor = true;
+            this.removeparticipantBtn.Location = new System.Drawing.Point(373, 344);
+            this.removeparticipantBtn.Name = "removeparticipantBtn";
+            this.removeparticipantBtn.Size = new System.Drawing.Size(57, 23);
+            this.removeparticipantBtn.TabIndex = 6;
+            this.removeparticipantBtn.Text = "Remove";
+            this.removeparticipantBtn.UseVisualStyleBackColor = true;
             // 
             // CloseFormBtn
             // 
@@ -136,13 +137,13 @@
             this.Controls.Add(this.loadFileBtn);
             this.Controls.Add(this.startSceduleBtn);
             this.Controls.Add(this.CloseFormBtn);
-            this.Controls.Add(this.removePartcipantBtn);
-            this.Controls.Add(this.editPartcipantBtn);
-            this.Controls.Add(this.addPartcipantBtn);
-            this.Controls.Add(this.movePartcipantRightBtn);
-            this.Controls.Add(this.SelectedPartcipantsListBox);
+            this.Controls.Add(this.removeparticipantBtn);
+            this.Controls.Add(this.editparticipantBtn);
+            this.Controls.Add(this.addparticipantBtn);
+            this.Controls.Add(this.moveparticipantRightBtn);
+            this.Controls.Add(this.SelectedparticipantsListBox);
             this.Controls.Add(this.allParticipantListBox);
-            this.Controls.Add(this.movePartcipantsLeftBtn);
+            this.Controls.Add(this.moveparticipantsLeftBtn);
             this.Name = "mainMenu";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -152,13 +153,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button movePartcipantsLeftBtn;
+        private System.Windows.Forms.Button moveparticipantsLeftBtn;
         private System.Windows.Forms.ListBox allParticipantListBox;
-        private System.Windows.Forms.ListBox SelectedPartcipantsListBox;
-        private System.Windows.Forms.Button movePartcipantRightBtn;
-        private System.Windows.Forms.Button addPartcipantBtn;
-        private System.Windows.Forms.Button editPartcipantBtn;
-        private System.Windows.Forms.Button removePartcipantBtn;
+        private System.Windows.Forms.ListBox SelectedparticipantsListBox;
+        private System.Windows.Forms.Button moveparticipantRightBtn;
+        private System.Windows.Forms.Button addparticipantBtn;
+        private System.Windows.Forms.Button editparticipantBtn;
+        private System.Windows.Forms.Button removeparticipantBtn;
         private System.Windows.Forms.Button CloseFormBtn;
         private System.Windows.Forms.Button startSceduleBtn;
         private System.Windows.Forms.Button loadFileBtn;

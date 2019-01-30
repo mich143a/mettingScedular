@@ -31,7 +31,7 @@
             this.extendDateRangeBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.particpantsRemoveListBox = new System.Windows.Forms.ListBox();
-            this.ModifyPartcipantBtn = new System.Windows.Forms.Button();
+            this.ModifyparticipantBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // extendDateRangeBtn
@@ -49,7 +49,7 @@
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(122, 23);
             this.removeBtn.TabIndex = 1;
-            this.removeBtn.Text = "Remove Partcipant";
+            this.removeBtn.Text = "Remove participant";
             this.removeBtn.UseVisualStyleBackColor = true;
             // 
             // particpantsRemoveListBox
@@ -60,21 +60,21 @@
             this.particpantsRemoveListBox.Size = new System.Drawing.Size(120, 95);
             this.particpantsRemoveListBox.TabIndex = 2;
             // 
-            // ModifyPartcipantBtn
+            // ModifyparticipantBtn
             // 
-            this.ModifyPartcipantBtn.Location = new System.Drawing.Point(12, 86);
-            this.ModifyPartcipantBtn.Name = "ModifyPartcipantBtn";
-            this.ModifyPartcipantBtn.Size = new System.Drawing.Size(122, 23);
-            this.ModifyPartcipantBtn.TabIndex = 3;
-            this.ModifyPartcipantBtn.Text = "Modify Partcipant";
-            this.ModifyPartcipantBtn.UseVisualStyleBackColor = true;
+            this.ModifyparticipantBtn.Location = new System.Drawing.Point(12, 86);
+            this.ModifyparticipantBtn.Name = "ModifyparticipantBtn";
+            this.ModifyparticipantBtn.Size = new System.Drawing.Size(122, 23);
+            this.ModifyparticipantBtn.TabIndex = 3;
+            this.ModifyparticipantBtn.Text = "Modify participant";
+            this.ModifyparticipantBtn.UseVisualStyleBackColor = true;
             // 
             // dataConflictMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ModifyPartcipantBtn);
+            this.Controls.Add(this.ModifyparticipantBtn);
             this.Controls.Add(this.particpantsRemoveListBox);
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.extendDateRangeBtn);
@@ -89,6 +89,6 @@
         private System.Windows.Forms.Button extendDateRangeBtn;
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.ListBox particpantsRemoveListBox;
-        private System.Windows.Forms.Button ModifyPartcipantBtn;
+        private System.Windows.Forms.Button ModifyparticipantBtn;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MeetingScedular
 {
-    partial class addOrEditPartcipantsForm
+    partial class addOrEditparticipantsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,15 +50,15 @@
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
             // 
-            // addOrEditPartcipantsForm
+            // addOrEditparticipantsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 206);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.NameLbl);
-            this.Name = "addOrEditPartcipantsForm";
-            this.Text = "Add or Edit Partcipants Menu";
+            this.Name = "addOrEditparticipantsForm";
+            this.Text = "Add or Edit participants Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

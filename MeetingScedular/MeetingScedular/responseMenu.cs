@@ -17,5 +17,9 @@ namespace MeetingScedular
             InitializeComponent();
         }
 
+        private void sceduleMettingBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

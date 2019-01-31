@@ -16,9 +16,9 @@ namespace MeetingScedular
         {
             base.OnKeyDown(e);
 
-            if (SubmitOnEnter && e.KeyCode == Keys.Enter && !e.Shift)
+            //if (e.KeyCode == Keys.Enter && !e.Shift)
             {
-                e.SuppressKeyPress = true;
+                //e.SuppressKeyPress = true;
 
                 if (TextSubmitted != null)
                     TextSubmitted(this, this.Text);

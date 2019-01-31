@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace MeetingScedular
 {
-    class Participant
+    public class Participant
     {
         //variables
-        private string name;
-        private string email;
+        private string name = "empty";
+        private string email = "empty";
         private List<Slot> exclusionSet;
         private List<Slot> preferedSet;
         private int importance = 0;
+        private bool responded;
+
         //calls
 
         //constructor
@@ -22,6 +24,7 @@ namespace MeetingScedular
 
             exclusionSet = new List<Slot>();
             preferedSet = new List<Slot>();
+            responded = false;
         }
         //methods
         public string getName()
@@ -32,9 +35,9 @@ namespace MeetingScedular
         {
             this.name = newName;
         }
-        public string getEmail(string newEmail)
+        public string getEmail()
         {
-            return this.name;
+            return this.email;
         }
         public void setEmail(string newEmail)
         {
@@ -76,7 +79,14 @@ namespace MeetingScedular
         }
         //calculate methods
         //flexibilty
-
+        public bool getResponded()
+        {
+            return responded;
+        }
+        public void setResponded(bool respond)
+        {
+            responded = respond;
+        }
     }
 
 }

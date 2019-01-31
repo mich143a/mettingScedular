@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace MeetingScedular
 {
-    class ParticipantList
+    public class ParticipantList
     {
         private List<Participant> participantsList;
 
         public ParticipantList()
         {
             participantsList = new List<Participant>();
+
         }
         public List<Participant> getParticipants()
         {
@@ -26,5 +27,6 @@ namespace MeetingScedular
         {
             participantsList.RemoveAt(participantIndex);
         }
+
     }
 }

@@ -27,7 +27,7 @@ namespace MeetingScedular
             newParticipant.setName(name);
             newParticipant.setEmail(email);
             newParticipant.setImportance(importance);
-            mainMenu.
+
             this.Close();
         }
 
@@ -90,11 +90,11 @@ namespace MeetingScedular
                 ImportanceInputBox.Clear();
                 System.Windows.Forms.MessageBox.Show("Importance value inputted is not a number");
             }
-            
-            
+
+
         }
 
-      
+
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -103,7 +103,7 @@ namespace MeetingScedular
 
         private void dateTimePicker2_ValueChanged_1(object sender, EventArgs e)
         {
-           dateTimePicker2.Value.AddMinutes(60);
+            dateTimePicker2.Value.AddMinutes(60);
         }
 
         private void ExSetAddBtn_Click(object sender, EventArgs e)
@@ -111,24 +111,24 @@ namespace MeetingScedular
             string tempDate = dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
             string tempTime = dateTimePicker2.Value.Hour + ":00:00";
             DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);
-            
-                bool found = false;
-                //List<Slot> TempSlotList = newParticipant.getExSet
-                foreach (Slot slot in newParticipant.getExSet())
-                {
-                    if (newDate == slot.getStartTime())
-                    {
-                        found = true;
-                    }
 
-                }
-                if (found == false)
+            bool found = false;
+            //List<Slot> TempSlotList = newParticipant.getExSet
+            foreach (Slot slot in newParticipant.getExSet())
+            {
+                if (newDate == slot.getStartTime())
                 {
-                    newParticipant.addExSetSlot(newDate);
+                    found = true;
                 }
 
-                updateDisplay();
-            
+            }
+            if (found == false)
+            {
+                newParticipant.addExSetSlot(newDate);
+            }
+
+            updateDisplay();
+
         }
 
         private void RemoveExSetBtn_Click(object sender, EventArgs e)
@@ -174,5 +174,6 @@ namespace MeetingScedular
             }
             updateDisplay();
         }
+
     }
 }

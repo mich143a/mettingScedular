@@ -100,6 +100,7 @@
             this.sceduleMettingBtn.TabIndex = 10;
             this.sceduleMettingBtn.Text = "Scedule Meeting";
             this.sceduleMettingBtn.UseVisualStyleBackColor = true;
+            this.sceduleMettingBtn.Click += new System.EventHandler(this.sceduleMettingBtn_Click);
             // 
             // responseMenu
             // 

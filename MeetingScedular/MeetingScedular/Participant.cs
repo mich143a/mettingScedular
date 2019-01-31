@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace MeetingScedular
 {
-    class participant
+    class Participant
     {
         //variables
         private string name;
         private string email;
         private List<Slot> exclusionSet;
         private List<Slot> preferedSet;
-        private int importance;
+        private int importance = 0;
         //calls
 
         //constructor
-        public participant(string name, string email, int importance)
+        public Participant()
         {
-            this.name = name;
-            this.email = email;
+
             exclusionSet = new List<Slot>();
             preferedSet = new List<Slot>();
         }
@@ -67,7 +66,16 @@ namespace MeetingScedular
         {
             preferedSet.RemoveAt(slotIndex);
         }
-
+        public int getImportance()
+        {
+            return this.importance;
+        }
+        public void setImportance(int importance)
+        {
+            this.importance = importance;
+        }
+        //calculate methods
+        //flexibilty
 
     }
 

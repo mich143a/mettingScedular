@@ -48,6 +48,7 @@
             this.moveparticipantsLeftBtn.TabIndex = 0;
             this.moveparticipantsLeftBtn.Text = ">";
             this.moveparticipantsLeftBtn.UseVisualStyleBackColor = true;
+            this.moveparticipantsLeftBtn.Click += new System.EventHandler(this.moveparticipantsLeftBtn_Click);
             // 
             // allParticipantListBox
             // 
@@ -65,6 +66,7 @@
             this.SelectedparticipantsListBox.Name = "SelectedparticipantsListBox";
             this.SelectedparticipantsListBox.Size = new System.Drawing.Size(120, 95);
             this.SelectedparticipantsListBox.TabIndex = 2;
+            this.SelectedparticipantsListBox.SelectedIndexChanged += new System.EventHandler(this.SelectedparticipantsListBox_SelectedIndexChanged);
             // 
             // moveparticipantRightBtn
             // 
@@ -74,6 +76,7 @@
             this.moveparticipantRightBtn.TabIndex = 3;
             this.moveparticipantRightBtn.Text = "<";
             this.moveparticipantRightBtn.UseVisualStyleBackColor = true;
+            this.moveparticipantRightBtn.Click += new System.EventHandler(this.moveparticipantRightBtn_Click);
             // 
             // addparticipantBtn
             // 
@@ -83,6 +86,7 @@
             this.addparticipantBtn.TabIndex = 4;
             this.addparticipantBtn.Text = "Add";
             this.addparticipantBtn.UseVisualStyleBackColor = true;
+            this.addparticipantBtn.Click += new System.EventHandler(this.addparticipantBtn_Click);
             // 
             // editparticipantBtn
             // 
@@ -122,7 +126,7 @@
             // 
             // loadFileBtn
             // 
-            this.loadFileBtn.Location = new System.Drawing.Point(514, 301);
+            this.loadFileBtn.Location = new System.Drawing.Point(509, 191);
             this.loadFileBtn.Name = "loadFileBtn";
             this.loadFileBtn.Size = new System.Drawing.Size(75, 23);
             this.loadFileBtn.TabIndex = 9;
@@ -133,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(879, 522);
             this.Controls.Add(this.loadFileBtn);
             this.Controls.Add(this.startSceduleBtn);
             this.Controls.Add(this.CloseFormBtn);

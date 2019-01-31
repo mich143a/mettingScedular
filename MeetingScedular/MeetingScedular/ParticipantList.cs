@@ -27,6 +27,14 @@ namespace MeetingScedular
         {
             participantsList.RemoveAt(participantIndex);
         }
+        public void setTrueParticipant(int ParticipantIndex)
+        {
+            participantsList[ParticipantIndex].setResponded(true);
+        }
+        public Participant getParticipant(int index)
+        {
+            return participantsList[index];
+        }
 
     }
 }

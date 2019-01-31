@@ -9,22 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
+//Allows for use of email
+using System.Net;
+using System.Net.Mail;
+
 
 namespace MeetingScedular
 {
     public partial class mainMenu : Form
     {
         // variables
-        string name ="error";
+        string name = "error";
         string email = "error";
         int importance = 5;
-        Participant newParticipant;
+        private Participant newParticipant;
         //lists
         private ParticipantList allParticipants;
         private ParticipantList selectedParticipants;
 
+        //EMAIL
+        private ParticipantList participantsResponses;
         public mainMenu()
         {
+
+            participantsResponses = new ParticipantList();
+
             allParticipants = new ParticipantList();
             selectedParticipants = new ParticipantList();
             newParticipant = new Participant();
@@ -108,6 +117,14 @@ namespace MeetingScedular
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();*/
             //load function
+            Participant loadParticipant = new Participant();
+            loadParticipant.setName("bob");
+            loadParticipant.setEmail("mich143a@gmail.com");
+            allParticipants.addParticipant(loadParticipant);
+            loadParticipant = new Participant();
+            loadParticipant.setName("alan");
+            loadParticipant.setEmail("mich143a@gmail.com");
+            allParticipants.addParticipant(loadParticipant);
             RespondersGB.Visible = false;
             AddPartcipantGB.Visible = false;
             updateDisplay();
@@ -126,14 +143,14 @@ namespace MeetingScedular
             {
                 foreach (Participant participant in allParticipants.getParticipants())
                 {
-                    allParticipantListBox.Items.Add(participant.getName()+ " \n " + participant.getEmail());
+                    allParticipantListBox.Items.Add(participant.getName() + " : " + participant.getEmail());
                 }
             }
             if (selectedParticipants.getParticipants().Count != 0)
             {
                 foreach (Participant participant in selectedParticipants.getParticipants())
                 {
-                    SelectedparticipantsListBox.Items.Add(participant.getName());
+                    SelectedparticipantsListBox.Items.Add(participant.getName() + " : " + participant.getEmail());
                 }
             }
             ExSetListBox.Items.Clear();
@@ -154,7 +171,14 @@ namespace MeetingScedular
                     PreSetListBox.Items.Add(slot.getStartTime());
                 }
             }
-
+            participantsResponseListBox.Items.Clear();
+            if (participantsResponses.getParticipants().Count != 0)
+            {
+                foreach (Participant participant in participantsResponses.getParticipants())
+                {
+                    participantsResponseListBox.Items.Add(participant.getName() + " : " + participant.getResponded());
+                }
+            }
         }
 
         private void SelectedparticipantsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,20 +191,19 @@ namespace MeetingScedular
             if (allParticipantListBox.SelectedItems.Count == 1)
             {
                 int currentParticipantIndex = allParticipantListBox.SelectedIndex;
-            Participant tempParticipant = allParticipants.getParticipants()[currentParticipantIndex];
-            
+                Participant tempParticipant = allParticipants.getParticipants()[currentParticipantIndex];
+
                 bool found = false;
-                foreach(Participant participant in selectedParticipants.getParticipants())
+                foreach (Participant participant in selectedParticipants.getParticipants())
                 {
                     if (tempParticipant == participant)
                     {
                         found = true;
                     }
-                    
+
                 }
-                if(found == false)
+                if (found == false)
                 {
-                    newParticipant = new Participant();
                     selectedParticipants.addParticipant(tempParticipant);
                 }
             }
@@ -189,7 +212,7 @@ namespace MeetingScedular
 
         private void moveparticipantRightBtn_Click(object sender, EventArgs e)
         {
-            if (allParticipantListBox.SelectedItems.Count == 1)
+            if (SelectedparticipantsListBox.SelectedItems.Count == 1)
             {
                 int currentParticipantIndex = SelectedparticipantsListBox.SelectedIndex;
                 selectedParticipants.removeParticipant(currentParticipantIndex);
@@ -213,8 +236,12 @@ namespace MeetingScedular
             }
             if (found == false)
             {
+
                 allParticipants.addParticipant(newParticipant);
+                newParticipant = new Participant();
+
             }
+
             AddPartcipantGB.Visible = false;
             ExSetListBox.Items.Clear();
             PreSetListBox.Items.Clear();
@@ -223,13 +250,13 @@ namespace MeetingScedular
 
         private void dateTimePicker2_ValueChanged_1(object sender, EventArgs e)
         {
-            dateTimePicker2.Value.AddMinutes(60);
+            AddLowerTimePicker.Value.AddMinutes(60);
         }
 
         private void AddPreSetBtn_Click(object sender, EventArgs e)
         {
             string tempDate = dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
-            string tempTime = dateTimePicker2.Value.Hour + ":00:00";
+            string tempTime = AddLowerTimePicker.Value.Hour + ":00:00";
             DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);
 
             bool found = false;
@@ -255,6 +282,11 @@ namespace MeetingScedular
             {
                 newParticipant.addPreSet(newDate);
             }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("This date and slot have already been added to either your exclusion or preffered list.");
+            }
+
 
             updateDisplay();
         }
@@ -267,7 +299,7 @@ namespace MeetingScedular
         private void ExSetAddBtn_Click_1(object sender, EventArgs e)
         {
             string tempDate = dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
-            string tempTime = dateTimePicker2.Value.Hour + ":00:00";
+            string tempTime = AddLowerTimePicker.Value.Hour + ":00:00";
             DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);
 
             bool found = false;
@@ -294,6 +326,10 @@ namespace MeetingScedular
             {
                 newParticipant.addExSetSlot(newDate);
             }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("This date and slot have already been added to either your exclusion or preffered list.");
+            }
 
             updateDisplay();
         }
@@ -301,7 +337,7 @@ namespace MeetingScedular
         private void startSceduleBtn_Click(object sender, EventArgs e)
         {
             string tempDate = dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day;
-            string tempTime = dateTimePicker2.Value.Hour + ":00:00";
+            string tempTime = AddLowerTimePicker.Value.Hour + ":00:00";
             DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);
 
             bool found = false;
@@ -344,11 +380,14 @@ namespace MeetingScedular
         private void AddNewParticipant_Click(object sender, EventArgs e)
         {
             AddPartcipantGB.Visible = true;
+            MainGB.Visible = false;
+
+
         }
 
         private void NameInputBoxBtn_Click(object sender, EventArgs e)
         {
-            this.name= Microsoft.VisualBasic.Interaction.InputBox("Enter the participants name here", "Name Input", "", -1, -1);
+            this.name = Microsoft.VisualBasic.Interaction.InputBox("Enter the participants name here", "Name Input", "", -1, -1);
         }
 
         private void EmailInputBoxBtn_Click(object sender, EventArgs e)
@@ -390,14 +429,46 @@ namespace MeetingScedular
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            if (selectedParticipants.getParticipants().Count != 0)
+            foreach (Participant addparticipant in selectedParticipants.getParticipants())
             {
-                foreach (Participant participant in selectedParticipants.getParticipants())
+                participantsResponses.addParticipant(addparticipant);
+            }
+            foreach (Participant participant in participantsResponses.getParticipants())
+            {
+                if (participant.getResponded() == false)
                 {
-                    participantsResponseListBox.Items.Add(participant.getName());
+                    var fromAddress = new MailAddress("meetingschedularsystem@gmail.com", "From Meeting Scedular System");
+                    var toAddress = new MailAddress(participant.getEmail(), participant.getName());
+                    const string fromPassword = "Meetings91";
+                    const string subject = "Respond with meeting constraints";
+                    const string body = "You have been invited to a meeting please respond with your meeting your preferred and excluded dates and times.";
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                    };
+                    using (var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(message);
+                    }
+                    
                 }
             }
+
+            System.Windows.Forms.MessageBox.Show("Participants have been informed via their email");
+            MainGB.Visible = false;
             RespondersGB.Visible = true;
+            updateDisplay();
+
         }
 
         private void participantsResponseListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -407,7 +478,163 @@ namespace MeetingScedular
 
         private void CanceldDataRequestBtn_Click(object sender, EventArgs e)
         {
+            participantsResponses = new ParticipantList();
+            MainGB.Visible = true;
             RespondersGB.Visible = false;
+            updateDisplay();
+        }
+
+
+
+
+        // Email
+        private void reminderBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Participant participant in participantsResponses.getParticipants())
+            {
+                if(participant.getResponded() == false)
+                {
+                    var fromAddress = new MailAddress("meetingschedularsystem@gmail.com", "From Meeting Scedular System");
+                    var toAddress = new MailAddress(participant.getEmail(), participant.getName());
+                    const string fromPassword = "Meetings91";
+                    const string subject = "Respond with meeting constraints";
+                    const string body = "This is a reminder to respond to your meeting initiator with your preferred and excluded date sets for ";
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                    };
+                    using (var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(message);
+                    }
+                    System.Windows.Forms.MessageBox.Show("Participants have been reminded via theiur email");
+                }
+            }
+
+        }
+
+        private void editparticipant_Click(object sender, EventArgs e)
+        {
+            if (participantsResponseListBox.SelectedItems.Count == 1)
+            {
+                int currentParticipantIndex = participantsResponseListBox.SelectedIndex;
+
+                participantsResponses.setTrueParticipant(currentParticipantIndex);
+            }
+            updateDisplay();
+        }
+
+        private void addParticipantsCancelBtn_Click(object sender, EventArgs e)
+        {
+            newParticipant = new Participant();
+            MainGB.Visible = true;
+            AddPartcipantGB.Visible = false;
+            updateDisplay();
+        }
+
+        private void RemoveParticipantBtn_Click(object sender, EventArgs e)
+        {
+
+            if (SelectedparticipantsListBox.SelectedItems.Count == 1)
+            {
+                int currentIndex = SelectedparticipantsListBox.SelectedIndex;
+                Participant temp = selectedParticipants.getParticipant(currentIndex);
+                foreach (Participant participant in allParticipants.getParticipants()) {
+                    if(participant == temp)
+                    {
+                        //allParticipantListBox.removeParticipant();
+                    }
+                }
+                selectedParticipants.removeParticipant(currentIndex);
+            }
+            if (allParticipantListBox.SelectedItems.Count == 1)
+            {
+                int currentIndex = allParticipantListBox.SelectedIndex;
+                allParticipants.removeParticipant(currentIndex);
+            }
+            updateDisplay();
+        }
+
+        private void sceduleMettingBtn_Click(object sender, EventArgs e)
+        {
+            RespondersGB.Visible = false;
+            availableDatesGB.Visible = true;
+            updateAvailableList();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectDateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateAvailableList()
+        {
+            List<Slot> availableDates = new List<Slot>();
+            List<Slot> preferedDates = new List<Slot>();
+            string tempDate = LowerDatePicker.Value.Year + "-" + LowerDatePicker.Value.Month + "-" + LowerDatePicker.Value.Day;
+            string tempTime =LowerTimePicker.Value.Hour + ":00:00";
+            DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);
+
+            string temDate = UpperDatePicker.Value.Year + "-" + UpperDatePicker.Value.Month + "-" + UpperDatePicker.Value.Day;
+            string temTime = UpperTimePicker.Value.Hour + ":00:00";
+            DateTime anewDate = DateTime.Parse(temDate + " " + temTime);
+
+            while (newDate != anewDate)
+            {
+                Slot newslot = new Slot(newDate);
+                availableDates.Add(newslot);
+                newDate.AddHours(1);
+           
+            }
+
+            foreach (Slot slot in availableDates)
+            {
+                foreach (Participant participant in participantsResponses.getParticipants()) {
+                    int index = 0;
+                    foreach (Slot exslot in participant.getExSet())
+                    {
+                        if(slot == exslot)
+                        {
+                            availableDates.RemoveAt(index);
+                        }
+                    }
+                    foreach (Slot preslot in participant.getPreSet())
+                    {
+                        if(slot == preslot)
+                        {
+                            preferedDates.Add(slot);
+
+                        }
+                    }
+                }
+                availableDatesListBox.Items.Add(slot.getStartTime());
+
+                if ()
+                {
+                   
+                }
+
+            }
+
+
         }
     }
-}
+
+
+
+     }

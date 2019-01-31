@@ -26,6 +26,9 @@ namespace MeetingScedular
         //lists
         private ParticipantList allParticipants;
         private ParticipantList selectedParticipants;
+        private List<Slot> MeetingScedule = new List<Slot>();
+        private List<Slot> availableDates = new List<Slot>();
+        private List<Slot> preferedDates = new List<Slot>();
 
         //EMAIL
         private ParticipantList participantsResponses;
@@ -596,13 +599,32 @@ namespace MeetingScedular
 
         private void selectDateBtn_Click(object sender, EventArgs e)
         {
+            /*if (availableDatesListBox.SelectedItems.Count == 1)
+            {
+                int currentParticipantIndex = availableDatesListBox.SelectedIndex;
+                Slot tempSlot = availableDates.currentParticipantIndex];
+
+                bool found = false;
+                foreach (Participant participant in selectedParticipants.getParticipants())
+                {
+                    if (tempParticipant == participant)
+                    {
+                        found = true;
+                    }
+
+                }
+                if (found == false)
+                {
+                    selectedParticipants.addParticipant(tempParticipant);
+                }
+            }*/
+            updateDisplay();
 
         }
 
         private void updateAvailableList()
         {
-            List<Slot> availableDates = new List<Slot>();
-            List<Slot> preferedDates = new List<Slot>();
+
             string tempDate = LowerDatePicker.Value.Year + "-" + LowerDatePicker.Value.Month + "-" + LowerDatePicker.Value.Day;
             string tempTime =LowerTimePicker.Value.Hour + ":00:00";
             DateTime newDate = DateTime.Parse(tempDate + " " + tempTime);

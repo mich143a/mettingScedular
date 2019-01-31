@@ -385,11 +385,11 @@
             // 
             // selectDateBtn
             // 
-            this.selectDateBtn.Location = new System.Drawing.Point(162, 257);
+            this.selectDateBtn.Location = new System.Drawing.Point(254, 256);
             this.selectDateBtn.Name = "selectDateBtn";
             this.selectDateBtn.Size = new System.Drawing.Size(102, 37);
             this.selectDateBtn.TabIndex = 18;
-            this.selectDateBtn.Text = "I CHOose you";
+            this.selectDateBtn.Text = "SetMeeting";
             this.selectDateBtn.UseVisualStyleBackColor = true;
             this.selectDateBtn.Click += new System.EventHandler(this.selectDateBtn_Click);
             // 

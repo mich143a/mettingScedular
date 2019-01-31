@@ -127,6 +127,7 @@ namespace MeetingScedular
             allParticipants.addParticipant(loadParticipant);
             RespondersGB.Visible = false;
             AddPartcipantGB.Visible = false;
+            availableDatesGB.Visible = false;
             updateDisplay();
         }
 
@@ -243,6 +244,7 @@ namespace MeetingScedular
             }
 
             AddPartcipantGB.Visible = false;
+            MainGB.Visible = true;
             ExSetListBox.Items.Clear();
             PreSetListBox.Items.Clear();
             updateDisplay();
@@ -567,9 +569,24 @@ namespace MeetingScedular
 
         private void sceduleMettingBtn_Click(object sender, EventArgs e)
         {
-            RespondersGB.Visible = false;
-            availableDatesGB.Visible = true;
-            updateAvailableList();
+            if (participantsResponses.getParticipants().Count != 0)
+            {
+                int index = 0;
+                foreach (Participant participant in participantsResponses.getParticipants())
+                {
+                    if (participant.getResponded() == true)
+                    {
+                        index++;
+                    }
+                }
+
+                if (index == participantsResponses.getParticipants().Count)
+                {
+                    RespondersGB.Visible = false;
+                    availableDatesGB.Visible = true;
+                    updateAvailableList();
+                }
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -594,44 +611,42 @@ namespace MeetingScedular
             string temTime = UpperTimePicker.Value.Hour + ":00:00";
             DateTime anewDate = DateTime.Parse(temDate + " " + temTime);
 
-            while (newDate != anewDate)
+            while (newDate <= anewDate)
             {
                 Slot newslot = new Slot(newDate);
                 availableDates.Add(newslot);
-                newDate.AddHours(1);
-           
+                newDate = newDate.AddHours(1);
+
+
             }
 
             foreach (Slot slot in availableDates)
             {
-                foreach (Participant participant in participantsResponses.getParticipants()) {
-                    int index = 0;
-                    foreach (Slot exslot in participant.getExSet())
-                    {
-                        if(slot == exslot)
-                        {
-                            availableDates.RemoveAt(index);
-                        }
-                    }
-                    foreach (Slot preslot in participant.getPreSet())
-                    {
-                        if(slot == preslot)
-                        {
-                            preferedDates.Add(slot);
-
-                        }
-                    }
-                }
-                availableDatesListBox.Items.Add(slot.getStartTime());
-
-                if ()
-                {
-                   
-                }
-
+                availableDatesListBox.Items.Add(slot.getStartTime());          
             }
 
 
+
+        }
+
+        private void UpperDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            updateAvailableList();
+        }
+
+        private void UpperTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            updateAvailableList();
+        }
+
+        private void LowerDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            updateAvailableList();
+        }
+
+        private void LowerTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            updateAvailableList();
         }
     }
 

@@ -69,7 +69,7 @@
             this.UpperDatePicker = new System.Windows.Forms.DateTimePicker();
             this.UpperTimePicker = new System.Windows.Forms.DateTimePicker();
             this.LowerTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.preferedDates = new System.Windows.Forms.ListBox();
+            this.preferedDatesListBox = new System.Windows.Forms.ListBox();
             this.AddPartcipantGB.SuspendLayout();
             this.MainGB.SuspendLayout();
             this.RespondersGB.SuspendLayout();
@@ -349,7 +349,7 @@
             this.reminderBtn.Name = "reminderBtn";
             this.reminderBtn.Size = new System.Drawing.Size(85, 51);
             this.reminderBtn.TabIndex = 16;
-            this.reminderBtn.Text = "Remind Unresponsive Patrcipants";
+            this.reminderBtn.Text = "Remind Unresponsive Participants";
             this.reminderBtn.UseVisualStyleBackColor = true;
             this.reminderBtn.Click += new System.EventHandler(this.reminderBtn_Click);
             // 
@@ -432,7 +432,7 @@
             // 
             // availableDatesGB
             // 
-            this.availableDatesGB.Controls.Add(this.preferedDates);
+            this.availableDatesGB.Controls.Add(this.preferedDatesListBox);
             this.availableDatesGB.Controls.Add(this.groupBox2);
             this.availableDatesGB.Controls.Add(this.availableDatesListBox);
             this.availableDatesGB.Controls.Add(this.groupBox1);
@@ -451,6 +451,7 @@
             this.LowerDatePicker.Name = "LowerDatePicker";
             this.LowerDatePicker.Size = new System.Drawing.Size(188, 20);
             this.LowerDatePicker.TabIndex = 23;
+            this.LowerDatePicker.ValueChanged += new System.EventHandler(this.LowerDatePicker_ValueChanged);
             // 
             // groupBox1
             // 
@@ -481,6 +482,7 @@
             this.UpperDatePicker.Name = "UpperDatePicker";
             this.UpperDatePicker.Size = new System.Drawing.Size(188, 20);
             this.UpperDatePicker.TabIndex = 23;
+            this.UpperDatePicker.ValueChanged += new System.EventHandler(this.UpperDatePicker_ValueChanged);
             // 
             // UpperTimePicker
             // 
@@ -492,6 +494,7 @@
             this.UpperTimePicker.Size = new System.Drawing.Size(52, 20);
             this.UpperTimePicker.TabIndex = 29;
             this.UpperTimePicker.Value = new System.DateTime(2019, 1, 31, 1, 0, 0, 0);
+            this.UpperTimePicker.ValueChanged += new System.EventHandler(this.UpperTimePicker_ValueChanged);
             // 
             // LowerTimePicker
             // 
@@ -503,14 +506,15 @@
             this.LowerTimePicker.Size = new System.Drawing.Size(52, 20);
             this.LowerTimePicker.TabIndex = 35;
             this.LowerTimePicker.Value = new System.DateTime(2019, 1, 31, 1, 0, 0, 0);
+            this.LowerTimePicker.ValueChanged += new System.EventHandler(this.LowerTimePicker_ValueChanged);
             // 
-            // preferedDates
+            // preferedDatesListBox
             // 
-            this.preferedDates.FormattingEnabled = true;
-            this.preferedDates.Location = new System.Drawing.Point(6, 126);
-            this.preferedDates.Name = "preferedDates";
-            this.preferedDates.Size = new System.Drawing.Size(120, 95);
-            this.preferedDates.TabIndex = 34;
+            this.preferedDatesListBox.FormattingEnabled = true;
+            this.preferedDatesListBox.Location = new System.Drawing.Point(6, 126);
+            this.preferedDatesListBox.Name = "preferedDatesListBox";
+            this.preferedDatesListBox.Size = new System.Drawing.Size(120, 95);
+            this.preferedDatesListBox.TabIndex = 34;
             // 
             // mainMenu
             // 
@@ -579,7 +583,7 @@
         private System.Windows.Forms.DateTimePicker UpperDatePicker;
         private System.Windows.Forms.DateTimePicker UpperTimePicker;
         private System.Windows.Forms.DateTimePicker LowerTimePicker;
-        private System.Windows.Forms.ListBox preferedDates;
+        private System.Windows.Forms.ListBox preferedDatesListBox;
     }
 }
 
